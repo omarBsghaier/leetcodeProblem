@@ -1,0 +1,18 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int [] res = {-1 ,-1 } ; 
+        int n = nums.length ; 
+        int value  ;
+        for  ( int i = 0 ; i < n ; i++ ) {
+             value  =target - nums[i] ; 
+             for ( int j = i+1 ; j < n ; j++ ) 
+                     if ( value == nums[j]){
+                        res[0] = i; 
+                        res[1] = j ; 
+            }
+           
+        }
+        return res ; 
+        
+    }
+}
