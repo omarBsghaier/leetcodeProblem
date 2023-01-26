@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int bit=0 ; 
+        if (n == 0) return bit ;
+        else {
+          bit = n % 2 + hammingWeight(n/2) ;
+           return bit ;
+        }
+       
+    }
+};
