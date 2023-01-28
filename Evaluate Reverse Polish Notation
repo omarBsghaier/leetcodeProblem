@@ -1,0 +1,38 @@
+class Solution {
+public:
+
+ int op (  int a, int b, char op){
+      if (op == '+' )
+         return a+b;
+      else if (op ==  '-')
+         return a-b;
+      else if (op == '/')
+         return a/b ;
+      else
+         return a*b; }
+
+
+    int evalRPN(vector<string>& tokens) {
+        stack<int> s ;
+        int n= tokens.size();
+    for (int i=0 ; i < n ; i++) { 
+     string c=tokens[i];
+
+    if (c.size() == 1  && (c == "+" || c == "-" || c == "/" || c == "*") )
+     {  
+        int b = s.top();
+        s.pop();
+        int a = s.top();
+        s.pop();
+        int res = op(a,b,c[0]);
+        s.push(res);
+     }
+    else
+    {
+     s.push(stoi(c));
+    }
+    }
+return s.top();
+    }
+    
+};
