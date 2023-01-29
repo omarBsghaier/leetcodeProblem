@@ -1,0 +1,37 @@
+class Solution {
+public:
+    string removeKdigits(string num, int k) {
+
+        deque<int> dq ; 
+        string res="" ; 
+        int n = num.size() ;
+
+        for ( int i =0 ; i < n ; i++ ){
+         int cur = num[i] - '0' ; // convert num[i] from char to int 
+
+         while ( ! dq.empty() && dq.back() > cur &&  k ){
+             dq.pop_back() ;
+             k-- ; 
+         }
+         dq.push_back(cur) ; 
+         }
+          while (!dq.empty() &&  k ){
+              dq.pop_back() ;
+              k-- ; 
+          }
+          while ( !dq.empty() && dq.front()== 0) {
+              dq.pop_front() ; 
+
+          }
+          while(! dq.empty()){
+              res+= '0'+ dq.front() ; 
+              dq.pop_front() ; 
+          } 
+          if( res=="")
+             res="0" ;
+          return res ;
+
+
+        
+    }
+};
