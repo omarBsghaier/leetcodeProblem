@@ -1,0 +1,23 @@
+class Solution {
+public:
+
+    bool isAnagram(string s, string t) {
+         int mp[256] = {0} ; 
+         for ( int i = 0 ; i < s.length() ; i++   )
+          mp[s[i]] += 1 ; 
+         for ( int i = 0 ; i < t.length() ; i++   )
+          {
+            if ( mp[t[i]] == 0 ) return false ;
+             mp[t[i]] -= 1 ;   
+          }
+          for ( int i = 0 ; i < 256 ; i++   )
+           if ( mp[i] != 0 ) return false ; 
+
+
+          return true ;
+
+
+
+        
+    }
+};
